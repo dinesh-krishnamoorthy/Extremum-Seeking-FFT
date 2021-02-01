@@ -4,6 +4,12 @@ This repository contains the MATLAB code that implements a multivariable extremu
 
 ![ESC_FFT](ESCFFT_github.png)
 
-The MATLAB code implements the FFT-based multivariable extremum seeking scheme for a wind farm power optimization problem with 6 wind turbines.
+## Example 1 - Wind farm optimization 
+The main file inside the folder "Windfarm_example" implements the FFT-based multivariable extremum seeking scheme for a wind farm power optimization problem with 6 wind turbines.
 
 ![Windfarm optimization](windfarm.png)
+
+## Example 2 - District heating system 
+The main file inside the folder "DistrictHeating" implements the FFT-based multivariable extremum seeking scheme for an Industrial waste-to-heat network, where the objective is to compute the optimal split ratios to maximize the outlet temperature.
+
+![District Heating](HEx.png)
