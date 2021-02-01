@@ -1,7 +1,10 @@
 clear
 clc
 
-addpath(genpath(pwd))
+FileName = mfilename('fullpath');
+[directory,~,~] = fileparts(FileName);
+[parent,~,~] = fileparts(directory);
+addpath([parent '/functions'])
 
 nL = 4;
 L = 128/nL;
