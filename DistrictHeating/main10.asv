@@ -86,9 +86,9 @@ for k = 1:4000
         sim.Ju(7,k) = 2/sign(sim.yph(7,k).*sim.U7ph(k))*Ymag(i7)/U7mag(i7);
         
         u0(:,k+1) = u0(:,k) + Ki.*sim.Ju(:,k);
-        sim.Ymag(:,k) = Ymag;
     else
         u0(:,k+1) = u0(:,k);
+        
     end
 end
 
@@ -103,7 +103,7 @@ u_opt_true2 = ideal_optimum(Th2);
 
 figure(16)
 clf
-subplot(321)
+subplot(311)
 hold all
 plot(sim.J,'k-','linewidth',2)
 ylabel('$T_{end}$','interpreter','latex')
@@ -113,21 +113,10 @@ axs.TickLabelInterpreter = 'latex';
 box on
 grid on
 
-subplot(323)
-hold all
-plot(sim.u0','linewidth',2)
-ylabel('Split ratio $u_i$','interpreter','latex')
-axs = gca;
-axs.FontSize = 14;
-axs.TickLabelInterpreter = 'latex';
-xlabel('Time','Interpreter','Latex')
-box on
-grid on
-
-subplot(325)
+subplot(212)
 hold all
 plot(sim.u0'-u_opt','linewidth',2)
-ylabel('$\tilde u_i$','interpreter','latex')
+ylabel('$u$','interpreter','latex')
 axs = gca;
 axs.FontSize = 14;
 axs.TickLabelInterpreter = 'latex';
@@ -136,19 +125,6 @@ box on
 grid on
 
 
-subplot(3,2,[2,4,6])
-time = nL*L:k;
-mesh(time,freq/Fs,sim.Ymag(:,time),'linewidth',1,'EdgeColor','interp')
-ylabel('Frequency','interpreter','latex')
-xlabel('Time','interpreter','latex')
-axs = gca;
-axs.FontSize = 14;
-axs.TickLabelInterpreter = 'latex';
-c = colorbar('southoutside');
-c.Label.String = '$2|\mathcal{J}(\omega)|$';
-c.Label.Interpreter = 'latex';
-c.TickLabelInterpreter = 'latex';
-title('Spectrogram','interpreter','latex')
 
 %%
 
